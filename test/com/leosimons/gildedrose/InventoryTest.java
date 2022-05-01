@@ -13,7 +13,7 @@ public class InventoryTest {
 //	new Item("Conjured Mana Cake", 3, 6)
 
     @Test
-    public void should_never_changes_quality_of_Sulfuras() {
+    public void shouldNeverChangesQualityOfSulfuras() {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
 
         Inventory sut = new Inventory(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
@@ -25,7 +25,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_never_changes_sellIn_of_Sulfuras() {
+    public void shouldNeverChangesSellInOfSulfuras() {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
 
         Inventory sut = new Inventory(sulfuras);
@@ -37,7 +37,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_lower_the_sellIn_by_one_for_normal_items() {
+    public void shouldLowerTheSellInByOneForNormalItems() {
         Item normalItem = new Item("+5 Dexterity Vest", 10, 20);
 
         Inventory sut = new Inventory(normalItem);
@@ -48,7 +48,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_lower_the_quality_by_one_for_normal_items() {
+    public void shouldLowerTheQualityByOneForNormalItems() {
         Item normalItem = new Item("+5 Dexterity Vest", 10, 20);
 
         Inventory sut = new Inventory(normalItem);
@@ -59,7 +59,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_not_lower_the_quality_below_zero() {
+    public void shouldNotLowerTheQualityBelowZero() {
         Item normalItem = new Item("+5 Dexterity Vest", 10, 0);
 
         Inventory sut = new Inventory(normalItem);
@@ -70,7 +70,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_lower_the_quality_twice_as_fast_once_the_sell_in_date_has_passed() {
+    public void shouldLowerTheQualityTwiceAsFastOnceTheSellInDateHasPassed() {
         Item normalItem = new Item("+5 Dexterity Vest", -1, 25);
 
         Inventory sut = new Inventory(normalItem);
@@ -81,7 +81,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_increase_the_quality_of_aged_brie_as_it_gets_older() {
+    public void shouldIncreaseTheQualityOfAgedBrieAsItGetsOlder() {
         Item agedBrie = new Item("Aged Brie", 10, 25);
 
         Inventory sut = new Inventory(agedBrie);
@@ -92,7 +92,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_not_increase_the_quality_of_aged_brie_over_50() {
+    public void shouldNotIncreaseTheQualityOfAgedBrieOver50() {
         Item agedBrie = new Item("Aged Brie", 10, 50);
 
         Inventory sut = new Inventory(agedBrie);
@@ -103,7 +103,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_lower_backstage_passes_to_zero_quality_once_concert_has_happened() {
+    public void shouldLowerBackstagePassesToZeroQualityOnceConcertHasHappened() {
         Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20);
 
         Inventory sut = new Inventory(backStagePass);
@@ -114,7 +114,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_increase_backstage_passes_quality_by_1_when_the_concert_is_more_than_10_days_away() {
+    public void shouldIncreaseBackstagePassesQualityBy1WhenTheConcertIsMoreThan10DaysAway() {
         Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20);
 
         Inventory sut = new Inventory(backStagePass);
@@ -125,7 +125,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_increase_backstage_passes_quality_by_2_when_the_concert_is_10_days_or_less_away() {
+    public void shouldIncreaseBackstagePassesQualityBy2WhenTheConcertIs10DaysOrLessAway() {
         Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 27);
 
         Inventory sut = new Inventory(backStagePass);
@@ -136,7 +136,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_increase_backstage_passes_quality_by_3_when_the_concert_is_5_days_or_less_away() {
+    public void shouldIncreaseBackstagePassesQualityBy3WhenTheConcertIs5DaysOrLessAway() {
         Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 44);
 
         Inventory sut = new Inventory(backStagePass);
@@ -147,7 +147,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void should_not_increase_backstage_passes_above_a_quality_of_50() {
+    public void shouldNotIncreaseBackstagePassesAboveAQualityOf50() {
         Item backStagePassMoreThan10DaysAway = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 50);
 
         Item backStagePass10DaysAway = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49);
