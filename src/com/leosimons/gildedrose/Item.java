@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.alexaitken.gildedrose;
+package com.leosimons.gildedrose;
 
 public class Item {
 
