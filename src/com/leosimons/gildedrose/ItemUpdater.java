@@ -1,6 +1,6 @@
 package com.leosimons.gildedrose;
 
-interface ItemQualityUpdater {
+interface ItemUpdater {
     boolean match(Item item);
 
     void update(Item item);

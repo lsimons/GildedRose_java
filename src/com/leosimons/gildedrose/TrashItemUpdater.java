@@ -1,6 +1,6 @@
 package com.leosimons.gildedrose;
 
-class TrashItemQualityUpdater extends DefaultItemQualityUpdater {
+class TrashItemUpdater extends DefaultItemUpdater {
     @Override
     public boolean match(final Item item) {
         return item.getQuality() <= MINIMUM_QUALITY;

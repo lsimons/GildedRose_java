@@ -1,6 +1,6 @@
 package com.leosimons.gildedrose;
 
-class DefaultItemQualityUpdater implements ItemQualityUpdater {
+class DefaultItemUpdater implements ItemUpdater {
     public static final int MINIMUM_QUALITY = 0;
     public static final int MAXIMUM_QUALITY = 50;
 

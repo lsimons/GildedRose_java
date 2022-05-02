@@ -1,6 +1,6 @@
 package com.leosimons.gildedrose;
 
-class LegendaryItemQualityUpdater extends DefaultItemQualityUpdater {
+class LegendaryItemUpdater extends DefaultItemUpdater {
     @Override
     public boolean match(final Item item) {
         return item.getQuality() >= MAXIMUM_QUALITY;

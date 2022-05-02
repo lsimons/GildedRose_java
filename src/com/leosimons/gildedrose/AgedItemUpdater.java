@@ -1,6 +1,6 @@
 package com.leosimons.gildedrose;
 
-class AgedItemQualityUpdater extends DefaultItemQualityUpdater {
+class AgedItemUpdater extends DefaultItemUpdater {
     @Override
     public boolean match(final Item item) {
         return item.getName().startsWith("Aged");
