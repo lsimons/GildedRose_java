@@ -16,12 +16,11 @@ public class InventoryTest {
     public void shouldNeverChangesQualityOfSulfuras() {
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
 
-        Inventory sut = new Inventory(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
+        Inventory sut = new Inventory(sulfuras);
 
         sut.updateQuality();
 
         assertEquals(80, sulfuras.getQuality());
-
     }
 
     @Test
@@ -103,6 +102,17 @@ public class InventoryTest {
     }
 
     @Test
+    public void shouldNeverChangesSellInOfAgedBrie() {
+        Item agedBrie = new Item("Aged Brie", 0, 25);
+
+        Inventory sut = new Inventory(agedBrie);
+
+        sut.updateQuality();
+
+        assertEquals(0, agedBrie.getSellIn());
+    }
+
+    @Test
     public void shouldLowerBackstagePassesToZeroQualityOnceConcertHasHappened() {
         Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20);
 
@@ -162,4 +172,47 @@ public class InventoryTest {
         assertEquals(50, backStagePass5DaysAway.getQuality());
     }
 
+    @Test
+    public void shouldLowerTheSellInByOneForBackstagePasses() {
+        Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 44);
+
+        Inventory sut = new Inventory(backStagePass);
+
+        sut.updateQuality();
+
+        assertEquals(9, backStagePass.getSellIn());
+    }
+
+    @Test
+    public void shouldLowerTheSellInByOneForConjuredItems() {
+        Item conjuredItem = new Item("Conjured Mana Cake", 3, 6);
+
+        Inventory sut = new Inventory(conjuredItem);
+
+        sut.updateQuality();
+
+        assertEquals(2, conjuredItem.getSellIn());
+    }
+
+    @Test
+    public void shouldLowerTheQualityByTwoForConjuredItems() {
+        Item conjuredItem = new Item("Conjured Mana Cake", 3, 6);
+
+        Inventory sut = new Inventory(conjuredItem);
+
+        sut.updateQuality();
+
+        assertEquals(4, conjuredItem.getQuality());
+    }
+
+    @Test
+    public void shouldNotLowerTheQualityBelowZeroForConjuredItems() {
+        Item conjuredItem = new Item("Conjured Mana Cake", 1, 1);
+
+        Inventory sut = new Inventory(conjuredItem);
+
+        sut.updateQuality();
+
+        assertEquals(0, conjuredItem.getQuality());
+    }
 }

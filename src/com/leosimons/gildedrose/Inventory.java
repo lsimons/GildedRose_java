@@ -6,7 +6,8 @@ public class Inventory {
             new LegendaryItemUpdater(),
             new TrashItemUpdater(),
             new AgedItemUpdater(),
-            new BackstagePassesUpdater()
+            new BackstagePassesUpdater(),
+            new ConjuredItemUpdater()
     };
     private static final ItemUpdater DEFAULT_UPDATER = new DefaultItemUpdater();
     private final Item[] items;

@@ -8,11 +8,6 @@ class AgedItemUpdater extends DefaultItemUpdater {
 
     @Override
     public void update(final Item item) {
-        decreaseSellIn(item);
         increaseQuality(item);
-        // possible BUG: increases quality twice as fast after sellIn
-        if (item.getSellIn() <= 0) {
-            increaseQuality(item);
-        }
     }
 }
