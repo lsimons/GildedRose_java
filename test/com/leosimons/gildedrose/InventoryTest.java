@@ -18,7 +18,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(sulfuras);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(80, sulfuras.getQuality());
     }
@@ -29,7 +29,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(sulfuras);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(0, sulfuras.getSellIn());
 
@@ -41,7 +41,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(normalItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(9, normalItem.getSellIn());
     }
@@ -52,7 +52,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(normalItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(19, normalItem.getQuality());
     }
@@ -63,7 +63,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(normalItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(0, normalItem.getQuality());
     }
@@ -74,7 +74,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(normalItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(23, normalItem.getQuality());
     }
@@ -85,7 +85,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(agedBrie);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(26, agedBrie.getQuality());
     }
@@ -96,7 +96,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(agedBrie);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(50, agedBrie.getQuality());
     }
@@ -107,7 +107,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(agedBrie);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(0, agedBrie.getSellIn());
     }
@@ -118,7 +118,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePass);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(0, backStagePass.getQuality());
     }
@@ -129,7 +129,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePass);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(21, backStagePass.getQuality());
     }
@@ -140,7 +140,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePass);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(29, backStagePass.getQuality());
     }
@@ -151,7 +151,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePass);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(47, backStagePass.getQuality());
     }
@@ -165,7 +165,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePassMoreThan10DaysAway, backStagePass10DaysAway, backStagePass5DaysAway);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(50, backStagePassMoreThan10DaysAway.getQuality());
         assertEquals(50, backStagePass10DaysAway.getQuality());
@@ -178,7 +178,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(backStagePass);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(9, backStagePass.getSellIn());
     }
@@ -189,7 +189,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(conjuredItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(2, conjuredItem.getSellIn());
     }
@@ -200,7 +200,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(conjuredItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(4, conjuredItem.getQuality());
     }
@@ -211,7 +211,7 @@ public class InventoryTest {
 
         Inventory sut = new Inventory(conjuredItem);
 
-        sut.updateQuality();
+        sut.updateItems();
 
         assertEquals(0, conjuredItem.getQuality());
     }

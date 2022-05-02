@@ -16,16 +16,6 @@ public class Inventory {
         this.items = items;
     }
 
-    /**
-     * Update item quality and sellIn properties.
-     *
-     * @deprecated use {@link #updateItems()} instead
-     */
-    @SuppressWarnings("DeprecatedIsStillUsed")
-    public void updateQuality() {
-        updateItems();
-    }
-
     public void updateItems() {
         for (final Item item : items) {
             updateItem(item);
