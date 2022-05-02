@@ -10,53 +10,60 @@ public class Inventory {
 
     public void updateQuality() {
         for (final Item item : items) {
-            if (!item.getName().equals("Aged Brie") && !item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.getQuality() > 0) {
-                    if (!item.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                        item.setQuality(item.getQuality() - 1);
-                    }
-                }
+            updateQuality(item);
+        }
+    }
+
+    private void updateQuality(final Item item) {
+        final String name = item.getName();
+
+        if (item.getQuality() <= 0 || item.getQuality() >= 50) {
+            // || name.equals("Sulfuras, Hand of Ragnaros")
+            return;
+        }
+
+        decreaseSellIn(item);
+
+        final int sellIn = item.getSellIn();
+        if (name.startsWith("Aged")) {
+            increaseQuality(item);
+            // possible BUG: increases quality twice as fast after sellIn
+            if (sellIn <= 0) {
+                increaseQuality(item);
+            }
+        } else if (name.startsWith("Backstage passes")) {
+            if (sellIn <= 0) {
+                item.setQuality(0);
             } else {
-                if (item.getQuality() < 50) {
-                    item.setQuality(item.getQuality() + 1);
-
-                    if (item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.getSellIn() < 11) {
-                            if (item.getQuality() < 50) {
-                                item.setQuality(item.getQuality() + 1);
-                            }
-                        }
-
-                        if (item.getSellIn() < 6) {
-                            if (item.getQuality() < 50) {
-                                item.setQuality(item.getQuality() + 1);
-                            }
-                        }
-                    }
+                increaseQuality(item);
+                if (sellIn < 10) {
+                    increaseQuality(item);
+                }
+                if (sellIn < 5) {
+                    increaseQuality(item);
                 }
             }
-
-            if (!item.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                item.setSellIn(item.getSellIn() - 1);
+        } else {
+            decreaseQuality(item);
+            if (sellIn <= 0) {
+                decreaseQuality(item);
             }
+        }
+    }
 
-            if (item.getSellIn() < 0) {
-                if (!item.getName().equals("Aged Brie")) {
-                    if (!item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.getQuality() > 0) {
-                            if (!item.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                                item.setQuality(item.getQuality() - 1);
-                            }
-                        }
-                    } else {
-                        item.setQuality(0);
-                    }
-                } else {
-                    if (item.getQuality() < 50) {
-                        item.setQuality(item.getQuality() + 1);
-                    }
-                }
-            }
+    private void decreaseSellIn(final Item item) {
+        item.setSellIn(item.getSellIn() - 1);
+    }
+
+    private void decreaseQuality(final Item item) {
+        if (item.getQuality() > 0) {
+            item.setQuality(item.getQuality() - 1);
+        }
+    }
+
+    private void increaseQuality(final Item item) {
+        if (item.getQuality() < 50) {
+            item.setQuality(item.getQuality() + 1);
         }
     }
 }
